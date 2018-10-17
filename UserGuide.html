@@ -16,16 +16,19 @@
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
 <li><a href="#list-all-products-code-inventory-code">3.2. List all products: <code>inventory</code></a></li>
 <li><a href="#search-for-a-product-code-find-code">3.3. Search for a product: <code>find</code></a></li>
-<li><a href="#add-a-product-code-add-product-name-code">3.4. Add a product: <code>add product name</code></a></li>
-<li><a href="#add-a-distributor-code-addd-name-code">3.5. Add a distributor: <code>addD name</code></a></li>
-<li><a href="#edit-a-distributor-code-editd-index-code">3.6. Edit a distributor: <code>editD index</code></a></li>
-<li><a href="#find-all-stored-contact-information-distributors-and-customers-code-contacts-code">3.7. Find all stored contact information (distributors and customers): <code>contacts</code></a></li>
-<li><a href="#show-best-selling-product-code-top-selling-code">3.8. Show best selling product: <code>top selling</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.9. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.10. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.11. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.12. Encrypting data files <code>[coming in v2.0]</code></a></li>
-<li><a href="#user-authentication">3.13. User Authentication</a></li>
+<li><a href="#add-a-transaction-code-transaction-code">3.4. Add a transaction: <code>transaction</code></a></li>
+<li><a href="#view-the-latest-transaction-code-latest-code">3.5. View the latest transaction: <code>latest</code></a></li>
+<li><a href="#set-a-reminder-code-setreminder-code">3.6. Set a reminder: <code>setreminder</code></a></li>
+<li><a href="#add-a-product-code-add-product-name-code">3.7. Add a product: <code>add product name</code></a></li>
+<li><a href="#add-a-distributor-code-addd-name-code">3.8. Add a distributor: <code>addD name</code></a></li>
+<li><a href="#edit-a-distributor-code-editd-index-code">3.9. Edit a distributor: <code>editD index</code></a></li>
+<li><a href="#find-all-stored-contact-information-distributors-and-customers-code-contacts-code">3.10. Find all stored contact information (distributors and customers): <code>contacts</code></a></li>
+<li><a href="#show-best-selling-product-code-top-selling-code">3.11. Show best selling product: <code>top selling</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.12. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.13. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.14. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.15. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#user-authentication">3.16. User Authentication</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -126,7 +129,37 @@ All products containing the name searched for will appear.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-a-product-code-add-product-name-code"><a class="link" href="#add-a-product-code-add-product-name-code">3.4. Add a product: <code>add product name</code></a></h3>
+<h3 id="add-a-transaction-code-transaction-code"><a class="link" href="#add-a-transaction-code-transaction-code">3.4. Add a transaction: <code>transaction</code></a></h3>
+<div class="paragraph">
+<p>Format: <code>Transaction pr/&lt;product name&gt; pr/&lt;product name&gt; &#8230;&#8203; pr/&lt;product name</code></p>
+</div>
+<div class="paragraph">
+<p>Adds a transaction to the record for the given day.
+The time of the transaction, names of the products, and
+individual product quantities will be stored.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="view-the-latest-transaction-code-latest-code"><a class="link" href="#view-the-latest-transaction-code-latest-code">3.5. View the latest transaction: <code>latest</code></a></h3>
+<div class="paragraph">
+<p>Format: <code>latest</code></p>
+</div>
+<div class="paragraph">
+<p>Displays the details of the latest transaction.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="set-a-reminder-code-setreminder-code"><a class="link" href="#set-a-reminder-code-setreminder-code">3.6. Set a reminder: <code>setreminder</code></a></h3>
+<div class="paragraph">
+<p>Format: <code>setreminder time/yyyy/MM/dd HH:mm:ss message/&lt;The reminder message&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Sets and stores a reminder. In v1.2, this is only allowed for the current day.
+In future releases, reminders will be set in the current and future days.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-a-product-code-add-product-name-code"><a class="link" href="#add-a-product-code-add-product-name-code">3.7. Add a product: <code>add product name</code></a></h3>
 <div class="paragraph">
 <p>Format: <code>add product name &lt;product name&gt;</code></p>
 </div>
@@ -135,7 +168,7 @@ All products containing the name searched for will appear.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-a-distributor-code-addd-name-code"><a class="link" href="#add-a-distributor-code-addd-name-code">3.5. Add a distributor: <code>addD name</code></a></h3>
+<h3 id="add-a-distributor-code-addd-name-code"><a class="link" href="#add-a-distributor-code-addd-name-code">3.8. Add a distributor: <code>addD name</code></a></h3>
 <div class="paragraph">
 <p>Format: <code>addD dn/&lt;distributor name&gt; dp/&lt;distributor phone&gt;</code></p>
 </div>
@@ -144,7 +177,7 @@ All products containing the name searched for will appear.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="edit-a-distributor-code-editd-index-code"><a class="link" href="#edit-a-distributor-code-editd-index-code">3.6. Edit a distributor: <code>editD index</code></a></h3>
+<h3 id="edit-a-distributor-code-editd-index-code"><a class="link" href="#edit-a-distributor-code-editd-index-code">3.9. Edit a distributor: <code>editD index</code></a></h3>
 <div class="paragraph">
 <p>Format: <code>addD index dn/&lt;distributor name&gt; dp/&lt;distributor phone&gt;</code></p>
 </div>
@@ -153,7 +186,7 @@ All products containing the name searched for will appear.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="find-all-stored-contact-information-distributors-and-customers-code-contacts-code"><a class="link" href="#find-all-stored-contact-information-distributors-and-customers-code-contacts-code">3.7. Find all stored contact information (distributors and customers): <code>contacts</code></a></h3>
+<h3 id="find-all-stored-contact-information-distributors-and-customers-code-contacts-code"><a class="link" href="#find-all-stored-contact-information-distributors-and-customers-code-contacts-code">3.10. Find all stored contact information (distributors and customers): <code>contacts</code></a></h3>
 <div class="paragraph">
 <p>Format: <code>contacts</code></p>
 </div>
@@ -162,7 +195,7 @@ All products containing the name searched for will appear.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="show-best-selling-product-code-top-selling-code"><a class="link" href="#show-best-selling-product-code-top-selling-code">3.8. Show best selling product: <code>top selling</code></a></h3>
+<h3 id="show-best-selling-product-code-top-selling-code"><a class="link" href="#show-best-selling-product-code-top-selling-code">3.11. Show best selling product: <code>top selling</code></a></h3>
 <div class="paragraph">
 <p>Format: <code>top selling</code></p>
 </div>
@@ -171,36 +204,36 @@ All products containing the name searched for will appear.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.9. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.12. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.10. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.13. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.11. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.14. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.12. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.15. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-authentication"><a class="link" href="#user-authentication">3.13. User Authentication</a></h3>
+<h3 id="user-authentication"><a class="link" href="#user-authentication">3.16. User Authentication</a></h3>
 <div class="sect3">
-<h4 id="create-new-user-code-create-code"><a class="link" href="#create-new-user-code-create-code">3.13.1. Create new user : <code>create</code></a></h4>
+<h4 id="create-new-user-code-create-code"><a class="link" href="#create-new-user-code-create-code">3.16.1. Create new user : <code>create</code></a></h4>
 <div class="paragraph">
 <p>Creates a new user account in the application.<br>
 Format: <code>create u/USERNAME p/PASSWORD</code>
@@ -208,14 +241,14 @@ e.g. <code>create u/John p/pass</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="login-code-login-code"><a class="link" href="#login-code-login-code">3.13.2. Login : <code>login</code></a></h4>
+<h4 id="login-code-login-code"><a class="link" href="#login-code-login-code">3.16.2. Login : <code>login</code></a></h4>
 <div class="paragraph">
 <p>Logs the user into the application.<br>
 Format: <code>login u/USERNAME p/PASSWORD</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="logout-code-logout-code"><a class="link" href="#logout-code-logout-code">3.13.3. Logout: <code>logout</code></a></h4>
+<h4 id="logout-code-logout-code"><a class="link" href="#logout-code-logout-code">3.16.3. Logout: <code>logout</code></a></h4>
 <div class="paragraph">
 <p>Logs the user out of the application.<br>
 Format: <code>logout</code></p>
@@ -259,6 +292,17 @@ e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1
 e.g. <code>addD dn/Ah Huat Distributors dp/61234567</code></p>
 </li>
 <li>
+<p><strong>Add a transaction</strong> <code>Transaction pr/&lt;product name&gt; pr/&lt;product name&gt; &#8230;&#8203; pr/&lt;product name</code><br>
+e.g. <code>transaction pr/Apple pr/Banana pr/Cherry pr/Banana</code></p>
+</li>
+<li>
+<p>*View the latest transaction: <code>latest</code></p>
+</li>
+<li>
+<p>*Set a reminder: <code>setreminder time/yyyy/MM/dd HH:mm:ss message/&lt;The reminder message&gt;</code><br>
+e.g <code>setreminder time/2018/08/16 08:30:00 message/Remove expired milk from aisle 6.</code></p>
+</li>
+<li>
 <p><strong>Clear</strong> : <code>clear</code></p>
 </li>
 <li>
@@ -299,4 +343,4 @@ e.g.<code>select 2</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 09:19:50 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 09:56:06 UTC</div></div></div></body></html>
