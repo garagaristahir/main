@@ -14,24 +14,14 @@
 <li><a href="#features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#list-all-products-code-inventory-code">3.2. List all products: <code>inventory</code></a></li>
-<li><a href="#search-for-a-product-code-find-code">3.3. Search for a product: <code>find</code></a></li>
-<li><a href="#add-a-transaction-code-transaction-code">3.4. Add a transaction: <code>transaction</code></a></li>
-<li><a href="#view-the-latest-transaction-code-latest-code">3.5. View the latest transaction: <code>latest</code></a></li>
-<li><a href="#add-a-reminder-code-setreminder-code">3.6. Add a reminder: <code>setreminder</code></a></li>
-<li><a href="#view-due-reminder-notifcations-code-duereminders-code">3.7. View due reminder notifcations: <code>duereminders</code></a></li>
-<li><a href="#add-a-product-code-add-code">3.8. Add a product: <code>add</code></a></li>
-<li><a href="#add-a-distributor-code-adddistributor-code">3.9. Add a distributor: <code>addDistributor</code></a></li>
-<li><a href="#edit-a-distributor-code-editdistributor-index-code">3.10. Edit a distributor: <code>editDistributor index</code></a></li>
-<li><a href="#find-a-distributor-code-finddistributor-code">3.11. Find a distributor: <code>findDistributor</code></a></li>
-<li><a href="#delete-a-distributor-code-deletedistributor-code">3.12. Delete a distributor: <code>deleteDistributor</code></a></li>
-<li><a href="#find-all-stored-contact-information-distributors-and-customers-code-contacts-code">3.13. Find all stored contact information (distributors and customers): <code>contacts</code></a></li>
-<li><a href="#show-best-selling-product-code-top-selling-code">3.14. Show best selling product: <code>top selling</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.15. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.17. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.18. Encrypting data files <code>[coming in v2.0]</code></a></li>
-<li><a href="#user-authentication">3.19. User Authentication</a></li>
+<li><a href="#authentication">3.2. Authentication</a></li>
+<li><a href="#inventory-management">3.3. Inventory Management</a></li>
+<li><a href="#contacts">3.4. Contacts</a></li>
+<li><a href="#journal">3.5. Journal</a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.6. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.7. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.8. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.9. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -112,7 +102,52 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-all-products-code-inventory-code"><a class="link" href="#list-all-products-code-inventory-code">3.2. List all products: <code>inventory</code></a></h3>
+<h3 id="authentication"><a class="link" href="#authentication">3.2. Authentication</a></h3>
+<div class="sect3">
+<h4 id="register-new-user-code-register-code"><a class="link" href="#register-new-user-code-register-code">3.2.1. Register new user : <code>register</code></a></h4>
+<div class="paragraph">
+<p>Creates a new user account in the application.<br>
+Format: <code>register u/USERNAME p/PASSWORD</code><br>
+e.g. <code>register u/John p/pass</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="login-code-login-code"><a class="link" href="#login-code-login-code">3.2.2. Login : <code>login</code></a></h4>
+<div class="paragraph">
+<p>Logs the user into the application.<br>
+Format: <code>login u/USERNAME p/PASSWORD</code><br>
+e.g. <code>login u/John p/pass</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="logout-code-logout-code"><a class="link" href="#logout-code-logout-code">3.2.3. Logout: <code>logout</code></a></h4>
+<div class="paragraph">
+<p>Logs the user out of the application.<br>
+Format: <code>logout</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deregister-code-deregister-code"><a class="link" href="#deregister-code-deregister-code">3.2.4. Deregister: <code>deregister</code></a></h4>
+<div class="paragraph">
+<p>Deregister the user account in the application.<br>
+Format: <code>deregister u/USERNAME p/PASSWORD</code><br>
+e.g. <code>deregister u/John p/pass</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="inventory-management"><a class="link" href="#inventory-management">3.3. Inventory Management</a></h3>
+<div class="sect3">
+<h4 id="add-a-product-code-add-code"><a class="link" href="#add-a-product-code-add-code">3.3.1. Add a product: <code>add</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>add n/&lt;product name&gt; s/&lt;serial no.&gt; d/&lt;distributor&gt; i/&lt;info.&gt; t/&lt;tags&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Adds a product to the list of products offered by the store</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-all-products-code-inventory-code"><a class="link" href="#list-all-products-code-inventory-code">3.3.2. List all products: <code>inventory</code></a></h4>
 <div class="paragraph">
 <p>Format: <code>inventory</code></p>
 </div>
@@ -120,19 +155,79 @@
 <p>Lists all products offered by the store in alphabetical order</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="search-for-a-product-code-find-code"><a class="link" href="#search-for-a-product-code-find-code">3.3. Search for a product: <code>find</code></a></h3>
+<div class="sect3">
+<h4 id="search-for-a-product-code-find-code"><a class="link" href="#search-for-a-product-code-find-code">3.3.3. Search for a product: <code>find</code></a></h4>
 <div class="paragraph">
 <p>Format: `find &lt;product name&gt;`or &lt;Serial number of product&gt;</p>
 </div>
 <div class="paragraph">
 <p>Displays the product and basic information related to it
 The search is case insensitive e.g ‘potato’ will match ‘POTATO’
-All products containing the name or having the same serial number that is serachedfor will appear.</p>
+All products containing the name or having the same serial number that is serached for will appear.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="show-best-selling-product-code-top-selling-code"><a class="link" href="#show-best-selling-product-code-top-selling-code">3.3.4. Show best selling product: <code>top selling</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>top selling</code></p>
+</div>
+<div class="paragraph">
+<p>Lists the best selling products in order of the sales revenues from those products.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-a-transaction-code-transaction-code"><a class="link" href="#add-a-transaction-code-transaction-code">3.4. Add a transaction: <code>transaction</code></a></h3>
+<h3 id="contacts"><a class="link" href="#contacts">3.4. Contacts</a></h3>
+<div class="sect3">
+<h4 id="add-a-distributor-code-adddistributor-code"><a class="link" href="#add-a-distributor-code-adddistributor-code">3.4.1. Add a distributor: <code>addDistributor</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>addDistributor dn/&lt;distributor name&gt; dp/&lt;distributor serialNumber&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Adds a distributor to the list of distributors engaged with the store.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edit-a-distributor-code-editdistributor-index-code"><a class="link" href="#edit-a-distributor-code-editdistributor-index-code">3.4.2. Edit a distributor: <code>editDistributor index</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>editDistributor index dn/&lt;distributor name&gt; dp/&lt;distributor serialNumber&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Edits details of the indexed distributor from the list of distributors engaged with the store.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="find-a-distributor-code-finddistributor-code"><a class="link" href="#find-a-distributor-code-finddistributor-code">3.4.3. Find a distributor: <code>findDistributor</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>findDistributor &lt;some relevant field&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Finds distributors that are related to the &lt;some relevant field&gt; entered.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-a-distributor-code-deletedistributor-code"><a class="link" href="#delete-a-distributor-code-deletedistributor-code">3.4.4. Delete a distributor: <code>deleteDistributor</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>deleteDistributor index</code></p>
+</div>
+<div class="paragraph">
+<p>Deletes the indexed distributor from the list of distributors engaged with the store.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="find-all-stored-contact-information-distributors-and-customers-code-contacts-code"><a class="link" href="#find-all-stored-contact-information-distributors-and-customers-code-contacts-code">3.4.5. Find all stored contact information (distributors and customers): <code>contacts</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>contacts</code></p>
+</div>
+<div class="paragraph">
+<p>This command lists all the contacts in alphabetical order of the first name, and whether they are distributors or customers.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="journal"><a class="link" href="#journal">3.5. Journal</a></h3>
+<div class="sect3">
+<h4 id="add-a-transaction-code-transaction-code"><a class="link" href="#add-a-transaction-code-transaction-code">3.5.1. Add a transaction: <code>transaction</code></a></h4>
 <div class="paragraph">
 <p>Format: <code>Transaction pr/&lt;product name&gt; pr/&lt;product name&gt; &#8230;&#8203; pr/&lt;product name</code></p>
 </div>
@@ -142,8 +237,8 @@ The time of the transaction, names of the products, and
 individual product quantities will be stored.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="view-the-latest-transaction-code-latest-code"><a class="link" href="#view-the-latest-transaction-code-latest-code">3.5. View the latest transaction: <code>latest</code></a></h3>
+<div class="sect3">
+<h4 id="view-the-latest-transaction-code-latest-code"><a class="link" href="#view-the-latest-transaction-code-latest-code">3.5.2. View the latest transaction: <code>latest</code></a></h4>
 <div class="paragraph">
 <p>Format: <code>latest</code></p>
 </div>
@@ -151,8 +246,8 @@ individual product quantities will be stored.</p>
 <p>Displays the details of the latest transaction.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="add-a-reminder-code-setreminder-code"><a class="link" href="#add-a-reminder-code-setreminder-code">3.6. Add a reminder: <code>setreminder</code></a></h3>
+<div class="sect3">
+<h4 id="add-a-reminder-code-setreminder-code"><a class="link" href="#add-a-reminder-code-setreminder-code">3.5.3. Add a reminder: <code>setreminder</code></a></h4>
 <div class="paragraph">
 <p>Format: <code>addreminder time/yyyy/MM/dd HH:mm:ss message/&lt;The reminder message&gt;</code></p>
 </div>
@@ -161,8 +256,8 @@ individual product quantities will be stored.</p>
 In future releases, reminders will be set in the current and future days.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="view-due-reminder-notifcations-code-duereminders-code"><a class="link" href="#view-due-reminder-notifcations-code-duereminders-code">3.7. View due reminder notifcations: <code>duereminders</code></a></h3>
+<div class="sect3">
+<h4 id="view-due-reminder-notifcations-code-duereminders-code"><a class="link" href="#view-due-reminder-notifcations-code-duereminders-code">3.5.4. View due reminder notifcations: <code>duereminders</code></a></h4>
 <div class="paragraph">
 <p>Format: <code>duereminders</code></p>
 </div>
@@ -170,128 +265,32 @@ In future releases, reminders will be set in the current and future days.</p>
 <p>Shows all reminders that are still due in the current day.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="add-a-product-code-add-code"><a class="link" href="#add-a-product-code-add-code">3.8. Add a product: <code>add</code></a></h3>
-<div class="paragraph">
-<p>Format: <code>add n/&lt;product name&gt; s/&lt;serial no.&gt; d/&lt;distributor&gt; i/&lt;info.&gt; t/&lt;tags&gt;</code></p>
-</div>
-<div class="paragraph">
-<p>Adds a product to the list of products offered by the store</p>
-</div>
 </div>
 <div class="sect2">
-<h3 id="add-a-distributor-code-adddistributor-code"><a class="link" href="#add-a-distributor-code-adddistributor-code">3.9. Add a distributor: <code>addDistributor</code></a></h3>
-<div class="paragraph">
-<p>Format: <code>addDistributor dn/&lt;distributor name&gt; dp/&lt;distributor serialNumber&gt;</code></p>
-</div>
-<div class="paragraph">
-<p>Adds a distributor to the list of distributors engaged with the store.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="edit-a-distributor-code-editdistributor-index-code"><a class="link" href="#edit-a-distributor-code-editdistributor-index-code">3.10. Edit a distributor: <code>editDistributor index</code></a></h3>
-<div class="paragraph">
-<p>Format: <code>editDistributor index dn/&lt;distributor name&gt; dp/&lt;distributor serialNumber&gt;</code></p>
-</div>
-<div class="paragraph">
-<p>Edits details of the indexed distributor from the list of distributors engaged with the store.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="find-a-distributor-code-finddistributor-code"><a class="link" href="#find-a-distributor-code-finddistributor-code">3.11. Find a distributor: <code>findDistributor</code></a></h3>
-<div class="paragraph">
-<p>Format: <code>findDistributor &lt;some relevant field&gt;</code></p>
-</div>
-<div class="paragraph">
-<p>Finds distributors that are related to the &lt;some relevant field&gt; entered.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="delete-a-distributor-code-deletedistributor-code"><a class="link" href="#delete-a-distributor-code-deletedistributor-code">3.12. Delete a distributor: <code>deleteDistributor</code></a></h3>
-<div class="paragraph">
-<p>Format: <code>deleteDistributor index</code></p>
-</div>
-<div class="paragraph">
-<p>Deletes the indexed distributor from the list of distributors engaged with the store.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="find-all-stored-contact-information-distributors-and-customers-code-contacts-code"><a class="link" href="#find-all-stored-contact-information-distributors-and-customers-code-contacts-code">3.13. Find all stored contact information (distributors and customers): <code>contacts</code></a></h3>
-<div class="paragraph">
-<p>Format: <code>contacts</code></p>
-</div>
-<div class="paragraph">
-<p>This command lists all the contacts in alphabetical order of the first name, and whether they are distributors or customers.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="show-best-selling-product-code-top-selling-code"><a class="link" href="#show-best-selling-product-code-top-selling-code">3.14. Show best selling product: <code>top selling</code></a></h3>
-<div class="paragraph">
-<p>Format: <code>top selling</code></p>
-</div>
-<div class="paragraph">
-<p>Lists the best selling products in order of the sales revenues from those products.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.15. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.6. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.7. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.17. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.8. Saving the data</a></h3>
 <div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
+<p>All data are saved onto the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.18. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.9. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="user-authentication"><a class="link" href="#user-authentication">3.19. User Authentication</a></h3>
-<div class="sect3">
-<h4 id="register-new-user-code-register-code"><a class="link" href="#register-new-user-code-register-code">3.19.1. Register new user : <code>register</code></a></h4>
-<div class="paragraph">
-<p>Creates a new user account in the application.<br>
-Format: <code>register u/USERNAME p/PASSWORD</code><br>
-e.g. <code>register u/John p/pass</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="login-code-login-code"><a class="link" href="#login-code-login-code">3.19.2. Login : <code>login</code></a></h4>
-<div class="paragraph">
-<p>Logs the user into the application.<br>
-Format: <code>login u/USERNAME p/PASSWORD</code><br>
-e.g. <code>login u/John p/pass</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="logout-code-logout-code"><a class="link" href="#logout-code-logout-code">3.19.3. Logout: <code>logout</code></a></h4>
-<div class="paragraph">
-<p>Logs the user out of the application.<br>
-Format: <code>logout</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="deregister-code-deregister-code"><a class="link" href="#deregister-code-deregister-code">3.19.4. Deregister: <code>deregister</code></a></h4>
-<div class="paragraph">
-<p>Deregister the user account in the application.<br>
-Format: <code>deregister u/USERNAME p/PASSWORD</code><br>
-e.g. <code>deregister u/John p/pass</code></p>
-</div>
 </div>
 </div>
 </div>
@@ -300,20 +299,28 @@ e.g. <code>deregister u/John p/pass</code></p>
 <h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Q: Why is the product called Inventarie Pro?
-A: We have Swedish developer on our team. Inventarie is the Swedish word for inventory.</p>
+<p>Q: Why is the product called Inventarie Pro?</p>
 </div>
 <div class="paragraph">
-<p>Q: How do I transfer my data to another computer?
-A: Install the application on another computer and copy the file “data”  from the old computer to the new computer and place it in the folder that belong to the program.</p>
+<p>A: We have Swedish developer on our team. <code>Inventarie</code> is the Swedish word for inventory.</p>
 </div>
 <div class="paragraph">
-<p>Q: I see your screenshots are from a Windows computer. Will this software work on my Macbook?
-A: Yes, because Java is platform independent. However, please ensure that the latest version of Java is installed on your system.</p>
+<p>Q: How do I transfer my data to another computer?</p>
 </div>
 <div class="paragraph">
-<p>Q: Why can I not just use pen and paper to log my transactions, if I am a small provision store owner?
-A: There are numerous advantages to digitization of records. Do google ‘advantages of digitization’ for more information!</p>
+<p>A: Install the application on another computer and copy the folder “data”  from the old computer to the new computer and place it in the folder that belong to the program.</p>
+</div>
+<div class="paragraph">
+<p>Q: I see your screenshots are from a Windows computer. Will this software work on my Macbook?</p>
+</div>
+<div class="paragraph">
+<p>A: Yes, because Java is platform independent. However, please ensure that the latest version of Java is installed on your system.</p>
+</div>
+<div class="paragraph">
+<p>Q: Why can I not just use pen and paper to log my transactions, if I am a small provision store owner?</p>
+</div>
+<div class="paragraph">
+<p>A: There are numerous advantages to digitization of records. Do google ‘advantages of digitization’ for more information!</p>
 </div>
 </div>
 </div>
@@ -385,4 +392,4 @@ e.g.<code>select 2</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-24 11:35:42 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-24 11:54:17 UTC</div></div></div></body></html>
