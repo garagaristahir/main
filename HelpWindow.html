@@ -17,7 +17,7 @@
 <li><a href="#authentication">3.2. Authentication</a></li>
 <li><a href="#inventory-management">3.3. Inventory Management</a></li>
 <li><a href="#contacts">3.4. Contacts</a></li>
-<li><a href="#journal">3.5. Journal</a></li>
+<li><a href="#sales-history">3.5. Sales History</a></li>
 <li><a href="#clearing-all-entries-code-clear-code">3.6. Clearing all entries : <code>clear</code></a></li>
 <li><a href="#exiting-the-program-code-exit-code">3.7. Exiting the program : <code>exit</code></a></li>
 <li><a href="#saving-the-data">3.8. Saving the data</a></li>
@@ -327,7 +327,7 @@ Deletes the 2nd distributor in the contacts panel.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="journal"><a class="link" href="#journal">3.5. Journal</a></h3>
+<h3 id="sales-history"><a class="link" href="#sales-history">3.5. Sales History</a></h3>
 <div class="sect3">
 <h4 id="add-a-transaction-code-transaction-code"><a class="link" href="#add-a-transaction-code-transaction-code">3.5.1. Add a transaction: <code>transaction</code></a></h4>
 <div class="paragraph">
@@ -361,11 +361,11 @@ individual product quantities will be stored.</p>
 <div class="sect3">
 <h4 id="add-a-reminder-code-setreminder-code"><a class="link" href="#add-a-reminder-code-setreminder-code">3.5.3. Add a reminder: <code>setreminder</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>addreminder time/yyyy/MM/dd HH:mm:ss message/&lt;The reminder message&gt;</code></p>
+<p>Format: <code>addreminder time/ &lt;yyyy/MM/dd HH:mm:ss&gt; message/&lt;The reminder message&gt;</code></p>
 </div>
 <div class="paragraph">
-<p>Sets and stores a reminder. In v1.2, this is only allowed for the current day.
-In future releases, reminders will be set in the current and future days.</p>
+<p>Sets and stores a reminder. All reminders must have unique times.
+There must only be a single space between "dd" and "HH" in the command format.</p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -373,10 +373,10 @@ In future releases, reminders will be set in the current and future days.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>addreminder time/2018/07/30 18:20:31 message/Throw rubbish</code></p>
+<p><code>addreminder time/ 2018/07/30 18:20:31 message/Throw rubbish</code></p>
 </li>
 <li>
-<p><code>addreminder time/2019/11/22 21:31:11 message/Milk delivery</code></p>
+<p><code>addreminder time/ 2019/11/22 21:31:11 message/Milk delivery</code></p>
 </li>
 </ul>
 </div>
@@ -387,7 +387,30 @@ In future releases, reminders will be set in the current and future days.</p>
 <p>Format: <code>duereminders</code></p>
 </div>
 <div class="paragraph">
-<p>Shows all reminders that are still due in the current day.</p>
+<p>Shows all reminders that are still due.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="view-all-reminders-code-allreminders-code"><a class="link" href="#view-all-reminders-code-allreminders-code">3.5.5. View all reminders: <code>allreminders</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>allreminders</code></p>
+</div>
+<div class="paragraph">
+<p>Shows all reminders that are in the system.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="remove-a-reminder"><a class="link" href="#remove-a-reminder">3.5.6. Remove a Reminder</a></h4>
+<div class="paragraph">
+<p>Format: <code>removereminder time/&lt;yyyy/MM/dd HH:mm:ss&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Removes a reminder in the system. There must only be a single
+space between "dd" and "HH" in the command format.</p>
+</div>
+<div class="paragraph">
+<p>Examples:
+* <code>removereminder time/ 2018/10/26 12:30:00</code></p>
 </div>
 </div>
 </div>
@@ -448,4 +471,4 @@ There is no need to save manually.</p>
 <p>A: There are numerous advantages to digitization of records. Do google ‘advantages of digitization’ for more information!</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 16:24:01 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 16:49:57 UTC</div></div></div></body></html>
