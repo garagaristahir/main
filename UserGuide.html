@@ -25,7 +25,6 @@
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
-<li><a href="#command-summary">5. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -43,10 +42,10 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Ensure you have Java version 9  installed in your Computer.</p>
+<p>Ensure you have Java version 9 installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest inventarie.jar here (link will be added later).</p>
+<p>Download the latest Inventarie.jar here (link will be added later).</p>
 </li>
 <li>
 <p>Copy the file to the folder you want to use as the home folder for your Inventarie Pro.</p>
@@ -55,7 +54,7 @@
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
 </li>
 <li>
-<p>Once prompted, enter your username and password. This will be your permanent username and password for subsequent uses.</p>
+<p>Enter your username and password.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/Ui.png" alt="Ui" width="790">
@@ -106,32 +105,59 @@
 <div class="sect3">
 <h4 id="register-new-user-code-register-code"><a class="link" href="#register-new-user-code-register-code">3.2.1. Register new user : <code>register</code></a></h4>
 <div class="paragraph">
-<p>Creates a new user account in the application.<br>
-Format: <code>register u/USERNAME p/PASSWORD</code><br>
-e.g. <code>register u/John p/pass</code></p>
+<p>Format: <code>register u/USERNAME p/PASSWORD</code><br>
+Creates a new user account in the application.<br></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>register u/John p/pass</code></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
 <h4 id="login-code-login-code"><a class="link" href="#login-code-login-code">3.2.2. Login : <code>login</code></a></h4>
 <div class="paragraph">
-<p>Logs the user into the application.<br>
-Format: <code>login u/USERNAME p/PASSWORD</code><br>
-e.g. <code>login u/John p/pass</code></p>
+<p>Format: <code>login u/USERNAME p/PASSWORD</code><br>
+Logs the user into the application.<br></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>login u/John p/pass</code></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
 <h4 id="logout-code-logout-code"><a class="link" href="#logout-code-logout-code">3.2.3. Logout: <code>logout</code></a></h4>
 <div class="paragraph">
-<p>Logs the user out of the application.<br>
-Format: <code>logout</code></p>
+<p>Format: <code>logout</code><br>
+Logs the user out of the application.<br></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="deregister-code-deregister-code"><a class="link" href="#deregister-code-deregister-code">3.2.4. Deregister: <code>deregister</code></a></h4>
 <div class="paragraph">
 <p>Deregister the user account in the application.<br>
-Format: <code>deregister u/USERNAME p/PASSWORD</code><br>
-e.g. <code>deregister u/John p/pass</code></p>
+Format: <code>deregister u/USERNAME p/PASSWORD</code><br></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deregister u/John p/pass</code></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -140,10 +166,23 @@ e.g. <code>deregister u/John p/pass</code></p>
 <div class="sect3">
 <h4 id="add-a-product-code-add-code"><a class="link" href="#add-a-product-code-add-code">3.3.1. Add a product: <code>add</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>add n/&lt;product name&gt; s/&lt;serial no.&gt; d/&lt;distributor&gt; i/&lt;info.&gt; t/&lt;tags&gt;</code></p>
+<p>Format: <code>add n/PRODUCT_NAME s/SERIAL_NUMBER d/DISTRIBUTOR i/INFO t/TAGS</code></p>
 </div>
 <div class="paragraph">
 <p>Adds a product to the list of products offered by the store, and adds the distributor to the list of distributors too if the distributor is not yet added. Distributors:s name is the Primary key.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add n/G2 s/08382 d/Pilot Pens i/0.7 t/Stationary</code></p>
+</li>
+<li>
+<p><code>add n/Black Tea s/10041 d/Lim Siang i/175mg t/Beverages</code></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
@@ -158,12 +197,25 @@ e.g. <code>deregister u/John p/pass</code></p>
 <div class="sect3">
 <h4 id="search-for-a-product-code-find-code"><a class="link" href="#search-for-a-product-code-find-code">3.3.3. Search for a product: <code>find</code></a></h4>
 <div class="paragraph">
-<p>Format: `find &lt;product name&gt;`or &lt;Serial number of product&gt;</p>
+<p>Format: <code>find PRODUCT_NAME</code> or <code>find SERIAL_NUMBER</code></p>
 </div>
 <div class="paragraph">
 <p>Displays the product and basic information related to it
 The search is case insensitive e.g ‘potato’ will match ‘POTATO’
-All products containing the name or having the same serial number that is serached for will appear.</p>
+All products containing the name or serial number that is searched for will appear.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find Cap</code></p>
+</li>
+<li>
+<p><code>find 1021</code></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
@@ -181,10 +233,23 @@ All products containing the name or having the same serial number that is serach
 <div class="sect3">
 <h4 id="add-a-distributor-code-adddistributor-code"><a class="link" href="#add-a-distributor-code-adddistributor-code">3.4.1. Add a distributor: <code>addDistributor</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>addDistributor dn/&lt;distributor name&gt; dp/&lt;distributor phone&gt;</code></p>
+<p>Format: <code>addDistributor dn/DISTRIBUTOR_NAME dp/PHONE_NUMBER</code></p>
 </div>
 <div class="paragraph">
 <p>Adds a distributor to the list of distributors engaged with the store. Distributors should have different names. There should not exist 2 distributors with the same name but different phone numbers.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addDistributor dn/Ming Kee dp/98761234</code></p>
+</li>
+<li>
+<p><code>addDistributor dn/Hak Kim dp/65900011</code></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
@@ -199,20 +264,40 @@ All products containing the name or having the same serial number that is serach
 <div class="sect3">
 <h4 id="edit-a-distributor-code-editdistributor-index-code"><a class="link" href="#edit-a-distributor-code-editdistributor-index-code">3.4.3. Edit a distributor: <code>editDistributor index</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>editDistributor index dn/&lt;distributor name&gt; dp/&lt;distributor serialNumber&gt;</code></p>
+<p>Format: <code>editDistributor index dn/DISTRIBUTOR_NAME dp/PHONE_NUMBER</code></p>
 </div>
 <div class="paragraph">
 <p>Edits details of the indexed distributor from the list of distributors engaged with the store.
 Index should be a positive number.</p>
 </div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editDistributor 1 dn/Ben Lok dp/93120000</code></p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect3">
 <h4 id="find-a-distributor-code-finddistributor-code"><a class="link" href="#find-a-distributor-code-finddistributor-code">3.4.4. Find a distributor: <code>findDistributor</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>findDistributor &lt;some relevant field&gt;</code></p>
+<p>Format: <code>findDistributor DISTRIBUTOR_NAME</code></p>
 </div>
 <div class="paragraph">
-<p>Finds distributors that are related to the &lt;some relevant field&gt; entered.</p>
+<p>Locates distributors that are related to the DISTRIBUTOR_NAME entered.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findDistributor Taylor</code></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
@@ -223,6 +308,22 @@ Index should be a positive number.</p>
 <div class="paragraph">
 <p>Deletes the indexed distributor from the list of distributors engaged with the store.</p>
 </div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete 2</code><br>
+Deletes the 2nd distributor in the contacts panel.</p>
+</li>
+<li>
+<p><code>find Betsy</code><br>
+<code>delete 1</code><br>
+ Deletes the 1st distributor in the results of the find command.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -230,12 +331,22 @@ Index should be a positive number.</p>
 <div class="sect3">
 <h4 id="add-a-transaction-code-transaction-code"><a class="link" href="#add-a-transaction-code-transaction-code">3.5.1. Add a transaction: <code>transaction</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>Transaction pr/&lt;product name&gt; pr/&lt;product name&gt; &#8230;&#8203; pr/&lt;product name</code></p>
+<p>Format: <code>transaction pr/PRODUCT_NAME pr/PRODUCT_NAME &#8230;&#8203; pr/PRODUCT_NAME</code></p>
 </div>
 <div class="paragraph">
 <p>Adds a transaction to the record for the given day.
 The time of the transaction, names of the products, and
 individual product quantities will be stored.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>transaction pr/Apple pr/Banana pr/Cherries</code></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
@@ -256,6 +367,19 @@ individual product quantities will be stored.</p>
 <p>Sets and stores a reminder. In v1.2, this is only allowed for the current day.
 In future releases, reminders will be set in the current and future days.</p>
 </div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addreminder time/2018/07/30 18:20:31 message/Throw rubbish</code></p>
+</li>
+<li>
+<p><code>addreminder time/2019/11/22 21:31:11 message/Milk delivery</code></p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect3">
 <h4 id="view-due-reminder-notifcations-code-duereminders-code"><a class="link" href="#view-due-reminder-notifcations-code-duereminders-code">3.5.4. View due reminder notifcations: <code>duereminders</code></a></h4>
@@ -270,15 +394,15 @@ In future releases, reminders will be set in the current and future days.</p>
 <div class="sect2">
 <h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.6. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
-<p>Clears all entries from the address book.<br>
-Format: <code>clear</code></p>
+<p>Format: <code>clear</code><br>
+Clears all entries from the address book.<br></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.7. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
+<p>Format: <code>exit</code><br>
+Exits the program.<br></p>
 </div>
 </div>
 <div class="sect2">
@@ -324,73 +448,4 @@ There is no need to save manually.</p>
 <p>A: There are numerous advantages to digitization of records. Do google ‘advantages of digitization’ for more information!</p>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Add Product</strong> : <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
-</li>
-<li>
-<p><strong>Add Distributor</strong> : <code>addD dn/DIST_NAME dp/DIST_PHONE</code><br>
-e.g. <code>addD dn/Ah Huat Distributors dp/61234567</code></p>
-</li>
-<li>
-<p><strong>Add a Transaction</strong> : <code>Transaction pr/&lt;product name&gt; pr/&lt;product name&gt; &#8230;&#8203; pr/&lt;product name</code><br>
-e.g. <code>transaction pr/Apple pr/Banana pr/Cherry pr/Banana</code></p>
-</li>
-<li>
-<p>*View the latest transaction: <code>latest</code></p>
-</li>
-<li>
-<p><strong>Set a Reminder</strong> : <code>addreminder time/yyyy/MM/dd HH:mm:ss message/&lt;The reminder message&gt;</code><br>
-e.g <code>addreminder time/2018/08/16 08:30:00 message/Remove expired milk from aisle 6.</code></p>
-</li>
-<li>
-<p><strong>View due Reminders</strong> : <code>duereminders</code></p>
-</li>
-<li>
-<p><strong>Clear</strong> : <code>clear</code></p>
-</li>
-<li>
-<p><strong>Delete</strong> : <code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p>
-</li>
-<li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
-</li>
-<li>
-<p><strong>Edit Distributor</strong> : <code>editD INDEX [dn/DIST_NAME] [dp/DIST_PHONE]</code><br>
-e.g. <code>editD 2 dn/Distributors Huat Ah dp/67654321</code></p>
-</li>
-<li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find James Jake</code></p>
-</li>
-<li>
-<p><strong>List</strong> : <code>list</code></p>
-</li>
-<li>
-<p><strong>Help</strong> : <code>help</code></p>
-</li>
-<li>
-<p><strong>Select</strong> : <code>select INDEX</code><br>
-e.g.<code>select 2</code></p>
-</li>
-<li>
-<p><strong>History</strong> : <code>history</code></p>
-</li>
-<li>
-<p><strong>Undo</strong> : <code>undo</code></p>
-</li>
-<li>
-<p><strong>Redo</strong> : <code>redo</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 14:52:36 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 15:06:44 UTC</div></div></div></body></html>
