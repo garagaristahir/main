@@ -24,7 +24,11 @@
 <li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.9. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
-<li><a href="#faq">4. FAQ</a></li>
+<li><a href="#faq">4. FAQ</a>
+<ul class="sectlevel2">
+<li><a href="#inventarie-pro-system-requirements">4.1. Inventarie Pro System Requirements</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -54,7 +58,13 @@
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
 </li>
 <li>
-<p>Enter your username and password.</p>
+<p>Register a new user account (Jump to <code>register</code> in <a href="#authentication">Section 3.2, &#8220;Authentication&#8221;</a>.</p>
+</li>
+<li>
+<p>Login with your username and password.</p>
+</li>
+<li>
+<p>Refer to <a href="#features">Section 3, &#8220;Features&#8221;</a> for a detailed list of commands.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/Ui.png" alt="Ui" width="790">
@@ -125,6 +135,13 @@ Creates a new user account in the application.<br></p>
 <p>Format: <code>login u/USERNAME p/PASSWORD</code><br>
 Logs the user into the application.<br></p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>The password is case-sensitive.</p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -164,12 +181,21 @@ Format: <code>deregister u/USERNAME p/PASSWORD</code><br></p>
 <div class="sect2">
 <h3 id="inventory-management"><a class="link" href="#inventory-management">3.3. Inventory Management</a></h3>
 <div class="sect3">
-<h4 id="add-a-product-code-add-code"><a class="link" href="#add-a-product-code-add-code">3.3.1. Add a product: <code>add</code></a></h4>
+<h4 id="add-a-product-code-addproduct-code"><a class="link" href="#add-a-product-code-addproduct-code">3.3.1. Add a product: <code>addproduct</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>add n/PRODUCT_NAME s/SERIAL_NUMBER d/DISTRIBUTOR i/INFO t/TAGS</code></p>
+<p>Format: <code>addproduct n/PRODUCT_NAME s/SERIAL_NUMBER d/DISTRIBUTOR i/INFO t/TAGS</code></p>
 </div>
 <div class="paragraph">
-<p>Adds a product to the list of products offered by the store, and adds the distributor to the list of distributors too if the distributor is not yet added. Distributors:s name is the Primary key.</p>
+<p>Adds a product to the list of products offered by the store
+and adds the distributor to the list of distributors if the distributor
+is not yet added.<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Distributor&#8217;s name is the key.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -177,32 +203,31 @@ Format: <code>deregister u/USERNAME p/PASSWORD</code><br></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/G2 s/08382 d/Pilot Pens i/0.7 t/Stationary</code></p>
+<p><code>addproduct n/G2 s/08382 d/Pilot Pens i/0.7 t/Stationary</code></p>
 </li>
 <li>
-<p><code>add n/Black Tea s/10041 d/Lim Siang i/175mg t/Beverages</code></p>
+<p><code>addproduct n/Black Tea s/10041 d/Lim Siang i/175mg t/Beverages</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-all-products-code-inventory-code"><a class="link" href="#list-all-products-code-inventory-code">3.3.2. List all products: <code>inventory</code></a></h4>
+<h4 id="search-for-a-product-code-findproduct-code"><a class="link" href="#search-for-a-product-code-findproduct-code">3.3.2. Search for a product: <code>findproduct</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>inventory</code></p>
+<p>Format: <code>findproduct PRODUCT_NAME</code> or <code>findproduct SERIAL_NUMBER</code></p>
 </div>
 <div class="paragraph">
-<p>Lists all products offered by the store in alphabetical order</p>
+<p>Displays the product and basic information related to it.<br></p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="search-for-a-product-code-find-code"><a class="link" href="#search-for-a-product-code-find-code">3.3.3. Search for a product: <code>find</code></a></h4>
-<div class="paragraph">
-<p>Format: <code>find PRODUCT_NAME</code> or <code>find SERIAL_NUMBER</code></p>
-</div>
-<div class="paragraph">
-<p>Displays the product and basic information related to it
-The search is case insensitive e.g ‘potato’ will match ‘POTATO’
-All products containing the name or serial number that is searched for will appear.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. (e.g <code>potato</code> will match <code>POTATO</code>)</p>
+</li>
+<li>
+<p>All products containing the name or serial number that is searched for will appear.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -210,33 +235,24 @@ All products containing the name or serial number that is searched for will appe
 <div class="ulist">
 <ul>
 <li>
-<p><code>find Cap</code></p>
+<p><code>findproduct Cap</code></p>
 </li>
 <li>
-<p><code>find 1021</code></p>
+<p><code>findproduct 1021</code></p>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="show-best-selling-product-code-top-selling-code"><a class="link" href="#show-best-selling-product-code-top-selling-code">3.3.4. Show best selling product: <code>top selling</code></a></h4>
-<div class="paragraph">
-<p>Format: <code>top selling</code></p>
-</div>
-<div class="paragraph">
-<p>Lists the best selling products in order of the sales revenues from those products.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="contacts"><a class="link" href="#contacts">3.4. Contacts</a></h3>
 <div class="sect3">
-<h4 id="add-a-distributor-code-adddistributor-code"><a class="link" href="#add-a-distributor-code-adddistributor-code">3.4.1. Add a distributor: <code>addDistributor</code></a></h4>
+<h4 id="add-a-distributor-code-adddistributor-code"><a class="link" href="#add-a-distributor-code-adddistributor-code">3.4.1. Add a distributor: <code>adddistributor</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>addDistributor dn/DISTRIBUTOR_NAME dp/PHONE_NUMBER</code></p>
+<p>Format: <code>adddistributor dn/DISTRIBUTOR_NAME dp/PHONE_NUMBER</code></p>
 </div>
 <div class="paragraph">
-<p>Adds a distributor to the list of distributors engaged with the store. Distributors should have different names. There should not exist 2 distributors with the same name but different phone numbers.</p>
+<p>Adds a distributor to the list of distributors engaged with the store.</p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -244,27 +260,27 @@ All products containing the name or serial number that is searched for will appe
 <div class="ulist">
 <ul>
 <li>
-<p><code>addDistributor dn/Ming Kee dp/98761234</code></p>
+<p><code>adddistributor dn/Ming Kee dp/98761234</code></p>
 </li>
 <li>
-<p><code>addDistributor dn/Hak Kim dp/65900011</code></p>
+<p><code>adddistributor dn/Hak Kim dp/65900011</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-all-distributors-code-listdistributors-code"><a class="link" href="#list-all-distributors-code-listdistributors-code">3.4.2. List all distributors: <code>listDistributors</code></a></h4>
+<h4 id="list-all-distributors-code-listdistributors-code"><a class="link" href="#list-all-distributors-code-listdistributors-code">3.4.2. List all distributors: <code>listdistributors</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>listDistributors</code></p>
+<p>Format: <code>listdistributors</code></p>
 </div>
 <div class="paragraph">
 <p>Provides the list of distributors engaged with the store.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-a-distributor-code-editdistributor-index-code"><a class="link" href="#edit-a-distributor-code-editdistributor-index-code">3.4.3. Edit a distributor: <code>editDistributor index</code></a></h4>
+<h4 id="edit-a-distributor-code-editdistributor-index-code"><a class="link" href="#edit-a-distributor-code-editdistributor-index-code">3.4.3. Edit a distributor: <code>editdistributor index</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>editDistributor index dn/DISTRIBUTOR_NAME dp/PHONE_NUMBER</code></p>
+<p>Format: <code>editdistributor index dn/DISTRIBUTOR_NAME dp/PHONE_NUMBER</code></p>
 </div>
 <div class="paragraph">
 <p>Edits details of the indexed distributor from the list of distributors engaged with the store.
@@ -276,15 +292,15 @@ Index should be a positive number.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>editDistributor 1 dn/Ben Lok dp/93120000</code></p>
+<p><code>editdistributor 1 dn/Ben Lok dp/93120000</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="find-a-distributor-code-finddistributor-code"><a class="link" href="#find-a-distributor-code-finddistributor-code">3.4.4. Find a distributor: <code>findDistributor</code></a></h4>
+<h4 id="find-a-distributor-code-finddistributor-code"><a class="link" href="#find-a-distributor-code-finddistributor-code">3.4.4. Find a distributor: <code>finddistributor</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>findDistributor DISTRIBUTOR_NAME</code></p>
+<p>Format: <code>finddistributor DISTRIBUTOR_NAME</code></p>
 </div>
 <div class="paragraph">
 <p>Locates distributors that are related to the DISTRIBUTOR_NAME entered.</p>
@@ -295,15 +311,15 @@ Index should be a positive number.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>findDistributor Taylor</code></p>
+<p><code>finddistributor Taylor</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-a-distributor-code-deletedistributor-code"><a class="link" href="#delete-a-distributor-code-deletedistributor-code">3.4.5. Delete a distributor: <code>deleteDistributor</code></a></h4>
+<h4 id="delete-a-distributor-code-deletedistributor-code"><a class="link" href="#delete-a-distributor-code-deletedistributor-code">3.4.5. Delete a distributor: <code>deletedistributor</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>deleteDistributor index</code></p>
+<p>Format: <code>deletedistributor index</code></p>
 </div>
 <div class="paragraph">
 <p>Deletes the indexed distributor from the list of distributors engaged with the store.</p>
@@ -361,11 +377,18 @@ individual product quantities will be stored.</p>
 <div class="sect3">
 <h4 id="add-a-reminder-code-setreminder-code"><a class="link" href="#add-a-reminder-code-setreminder-code">3.5.3. Add a reminder: <code>setreminder</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>addreminder time/ &lt;yyyy/MM/dd HH:mm:ss&gt; message/&lt;The reminder message&gt;</code></p>
+<p>Format: <code>addreminder time/ &lt;yyyy/MM/dd HH:mm:ss&gt; message/&lt;The reminder message&gt;</code>
+Sets and stores a reminder.</p>
 </div>
-<div class="paragraph">
-<p>Sets and stores a reminder. All reminders must have unique times.
-There must only be a single space between "dd" and "HH" in the command format.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>All reminders must have unique times.</p>
+</li>
+<li>
+<p>There must only be a single space between "dd" and "HH" in the command format.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -384,10 +407,8 @@ There must only be a single space between "dd" and "HH" in the command format.</
 <div class="sect3">
 <h4 id="view-due-reminder-notifcations-code-duereminders-code"><a class="link" href="#view-due-reminder-notifcations-code-duereminders-code">3.5.4. View due reminder notifcations: <code>duereminders</code></a></h4>
 <div class="paragraph">
-<p>Format: <code>duereminders</code></p>
-</div>
-<div class="paragraph">
-<p>Shows all reminders that are still due.</p>
+<p>Format: <code>duereminders</code>
+Displays all reminders that are still due.</p>
 </div>
 </div>
 <div class="sect3">
@@ -418,7 +439,7 @@ space between "dd" and "HH" in the command format.</p>
 <h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.6. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Format: <code>clear</code><br>
-Clears all entries from the address book.<br></p>
+Clears all product from Inventarie Pro.<br></p>
 </div>
 </div>
 <div class="sect2">
@@ -437,38 +458,52 @@ There is no need to save manually.</p>
 </div>
 <div class="sect2">
 <h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.9. Encrypting data files <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
-</div>
+
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="inventarie-pro-system-requirements"><a class="link" href="#inventarie-pro-system-requirements">4.1. Inventarie Pro System Requirements</a></h3>
 <div class="paragraph">
-<p>Q: Why is the product called Inventarie Pro?</p>
+<p>Recommended requirements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Operating system: Windows 10 64-bit/ Mac OS X<br></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>A: We have Swedish developer on our team. <code>Inventarie</code> is the Swedish word for inventory.</p>
+<p>Please ensure the latest version of Java is installed on your system.</p>
+</div>
+<div class="paragraph">
+<p>Q: Why is the software called <code>Inventarie Pro</code>?</p>
+</div>
+<div class="paragraph">
+<p>A: We have the pleasure of working with Swedish developer on our team.<br>
+<code>Inventarie</code> is the Swedish word for inventory.</p>
 </div>
 <div class="paragraph">
 <p>Q: How do I transfer my data to another computer?</p>
 </div>
 <div class="paragraph">
-<p>A: Install the application on another computer and copy the folder “data”  from the old computer to the new computer and place it in the folder that belong to the program.</p>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+. Install the application on another computer.
+. Copy the folder “data”  from the old computer to the new computer.
+. Place it in the folder that belong to the program.</p>
 </div>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
-<p>Q: I see your screenshots are from a Windows computer. Will this software work on my Macbook?</p>
-</div>
-<div class="paragraph">
-<p>A: Yes, because Java is platform independent. However, please ensure that the latest version of Java is installed on your system.</p>
-</div>
-<div class="paragraph">
-<p>Q: Why can I not just use pen and paper to log my transactions, if I am a small provision store owner?</p>
-</div>
-<div class="paragraph">
-<p>A: There are numerous advantages to digitization of records. Do google ‘advantages of digitization’ for more information!</p>
+<p>A: Install the application on another computer and copy the folder “data”  from the old computer to the new computer and place it in the folder that belong to the program.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 3cd35ee78dd20c8ee28a6f73b6992efe68870e4a</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-02 05:21:12 UTC</div></div></div></body></html>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-02 07:48:10 UTC</div></div></div></body></html>
