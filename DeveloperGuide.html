@@ -31,10 +31,11 @@
 <ul class="sectlevel2">
 <li><a href="#authentication">3.1. Authentication</a></li>
 <li><a href="#undo-redo-feature">3.2. Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.4. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
-<li><a href="#storing-transactions-feature">3.6. Storing Transactions Feature</a></li>
+<li><a href="#logging">3.3. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#storing-transactions-feature">3.5. Storing Transactions Feature</a></li>
+<li><a href="#proposed-data-encryption">3.6. [Proposed] Data Encryption</a></li>
+<li><a href="#proposed-thread-due-reminders">3.7. [Proposed] Thread Due Reminders</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -630,6 +631,25 @@ can reference. This would allow <code>Product Database</code> and <code>Distribu
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.1. Current Implementation</a></h4>
 <div class="sect4">
+<h5 id="multiple-users"><a class="link" href="#multiple-users">Multiple Users</a></h5>
+<div class="paragraph">
+<p>Each storage file is now stored in separate XML files. They are identified in the following format:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>addressbook-[USERNAME].xml</code></p>
+</li>
+<li>
+<p><code>distributorbook-[USERNAME].xml</code></p>
+</li>
+<li>
+<p><code>saleshistory-[USERNAME].xml</code></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
 <h5 id="login"><a class="link" href="#login">Login</a></h5>
 <div class="paragraph">
 <p>The following sequence diagram shows how the user authentication process works:<br></p>
@@ -642,12 +662,66 @@ can reference. This would allow <code>Product Database</code> and <code>Distribu
 </div>
 <div class="sect4">
 <h5 id="logout"><a class="link" href="#logout">Logout</a></h5>
-
+<div class="paragraph">
+<p>This feature allows the user to log out from the application, securing data.
+When the user is logged out, some of the user commands are limited. This is handled by <code>LogicManager</code>.</p>
+</div>
+<div class="paragraph">
+<p>The user will be unable to logout if not logged in.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="deregistration"><a class="link" href="#deregistration">Deregistration</a></h5>
+<div class="paragraph">
+<p>When the user is deleted, the following storage files stored in the system managed by the user will be deleted.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>addressbook-[USERNAME].xml</code></p>
+</li>
+<li>
+<p><code>distributorbook-[USERNAME].xml</code></p>
+</li>
+<li>
+<p><code>saleshistory-[USERNAME].xml</code></p>
+</li>
+</ol>
+</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
-
+<h4 id="proposed-enhancements"><a class="link" href="#proposed-enhancements">3.1.2. Proposed Enhancements</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Hiding/showing of panels when logged in/out for confidentiality.</p>
+</li>
+<li>
+<p>2-FA</p>
+</li>
+<li>
+<p>Login Status Identifier</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.3. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-users-database"><a class="link" href="#aspect-implementation-of-users-database">Aspect: Implementation of Users Database</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> All users stored collectively in one XML file.
+(users.xml)</p>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> SQL/NoSQL Databases.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -853,20 +927,14 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></h3>
-<div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -897,15 +965,15 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="storing-transactions-feature"><a class="link" href="#storing-transactions-feature">3.6. Storing Transactions Feature</a></h3>
+<h3 id="storing-transactions-feature"><a class="link" href="#storing-transactions-feature">3.5. Storing Transactions Feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.5.1. Current Implementation</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -941,13 +1009,71 @@ the <code>Transaction</code> objects in order of their creation times within mem
 </div>
 </div>
 <div class="sect3">
-<h4 id="alternative-implementations"><a class="link" href="#alternative-implementations">3.6.2. Alternative Implementations</a></h4>
+<h4 id="alternative-implementations"><a class="link" href="#alternative-implementations">3.5.2. Alternative Implementations</a></h4>
 <div class="paragraph">
 <p>Currently, the <code>Transaction</code> objects are stored on a <code>TreeMap</code> to maintain their chronological order in memory. However,
 should this prove non-essential, this will be redone on a <code>HashMap</code> to facilitate quicker access and easier handling in
 the code.</p>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.6. [Proposed] Data Encryption</a></h3>
+<div class="sect3">
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.6.1. Proposed Implementation</a></h4>
+<div class="paragraph">
+<p>Data needs to be encrypted to protect from unauthorized access.
+The process to transform data stored in the databases is to be facilitated by <code>DataEncryptionUtil</code> class.<br>
+It is a class containing utility methods to encrypt and decrypt files for Storage.<br>
+Additionally, it implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DataEncryptionUtil#encrypt()</code> - Encrypts file using a secret key.</p>
+</li>
+<li>
+<p><code>DataEncryptionUtil#decrypt()</code> - Decrypts file using a secret key.</p>
+</li>
+<li>
+<p><code>DataEncryptionUtil#processFile()</code> - Encrypts or decrypts a given file using a cipher.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.6.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-possible-schemes"><a class="link" href="#aspect-possible-schemes">Aspect: Possible schemes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (proposed choice):</strong> AES/CBC/PKCS5Padding</p>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> AES/ECB/PKCS5Padding</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-encryption-and-decryption-executes"><a class="link" href="#aspect-how-encryption-and-decryption-executes">Aspect: How encryption and decryption executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (proposed choice):</strong> Intercept <code>XMLUtil</code> when reading and saving XML Storage files.</p>
+</li>
+<li>
+<p><strong>Aleternative 2:</strong> Individual encrypt and decrypt command.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-thread-due-reminders"><a class="link" href="#proposed-thread-due-reminders">3.7. [Proposed] Thread Due Reminders</a></h3>
+
 </div>
 </div>
 </div>
@@ -2062,7 +2188,7 @@ for <code>RemarkCommandParser</code>.</p>
 <h2 id="product-scope"><a class="link" href="#product-scope">Appendix B: Product Scope</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Target user profile</strong>:</p>
+<p><strong>Target user profile</strong>: Small business owners</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2084,7 +2210,7 @@ for <code>RemarkCommandParser</code>.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Value proposition</strong>: manage contacts faster than a typical mouse/GUI driven app</p>
+<p><strong>Value proposition</strong>: tracks inventory faster than a typical mouse/GUI driven app</p>
 </div>
 </div>
 </div>
@@ -2452,4 +2578,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 11:45:35 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 12:10:55 UTC</div></div></div></body></html>
