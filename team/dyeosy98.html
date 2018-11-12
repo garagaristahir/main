@@ -112,7 +112,153 @@
 </tbody>
 </table>
 <div class="paragraph">
-<p>Feature descriptions related to distributor functions: include::../UserGuide.adoc[tag=distributormanagement]</p>
+<p>Feature descriptions related to distributor functions:</p>
+</div>
+<div class="sect2">
+<h3 id="contacts"><a class="link" href="#contacts">Contacts</a></h3>
+<div class="sect3">
+<h4 id="add-a-distributor-code-adddistributor-code"><a class="link" href="#add-a-distributor-code-adddistributor-code">Add a distributor: <code>adddistributor</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>adddistributor dn/DISTRIBUTOR_NAME dp/PHONE_NUMBER t/TAG</code></p>
+</div>
+<div class="paragraph">
+<p>Adds a distributor to the list of distributors engaged with the store.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>adddistributor dn/Ming Kee dp/98761234</code></p>
+</li>
+<li>
+<p><code>adddistributor dn/Hak Kim dp/65900011</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-all-distributors-code-listdistributors-code"><a class="link" href="#list-all-distributors-code-listdistributors-code">List all distributors: <code>listdistributors</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>listdistributors</code></p>
+</div>
+<div class="paragraph">
+<p>Provides the list of distributors engaged with the store.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edit-a-distributor-code-editdistributor-code"><a class="link" href="#edit-a-distributor-code-editdistributor-code">Edit a distributor: <code>editdistributor</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>editdistributor index dn/DISTRIBUTOR_NAME dp/PHONE_NUMBER</code></p>
+</div>
+<div class="paragraph">
+<p>Edits details of the indexed distributor from the list of distributors engaged with the store.
+Index should be a positive number.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editdistributor 1 dn/Apple Farm Lok dp/93120000</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="find-a-distributor-code-finddistributor-code"><a class="link" href="#find-a-distributor-code-finddistributor-code">Find a distributor: <code>finddistributor</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>finddistributor DISTRIBUTOR_NAME</code></p>
+</div>
+<div class="paragraph">
+<p>Locates distributors that are related to the DISTRIBUTOR_NAME entered.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>finddistributor Farm</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="find-a-distributor-by-tag-code-findtagdistributor-code"><a class="link" href="#find-a-distributor-by-tag-code-findtagdistributor-code">Find a distributor by tag: <code>findtagdistributor</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>findtagdistributor DISTRIBUTOR_TAG</code></p>
+</div>
+<div class="paragraph">
+<p>Locates distributors that are related to the DISTRIBUTOR_TAG entered.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findtagdistributor snack</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="see-a-list-of-products-that-a-distributor-can-provide-code-listdistributorproducts-code"><a class="link" href="#see-a-list-of-products-that-a-distributor-can-provide-code-listdistributorproducts-code">See a list of products that a distributor can provide: <code>listdistributorproducts</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>listdistributorproducts index</code></p>
+</div>
+<div class="paragraph">
+<p>Lists products that the indexed distributor from the list of distributors engaged with the store may supply.
+Index should be a positive number.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>listdistributorproducts 2</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-a-distributor-code-deletedistributor-code"><a class="link" href="#delete-a-distributor-code-deletedistributor-code">Delete a distributor: <code>deletedistributor</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>deletedistributor index</code></p>
+</div>
+<div class="paragraph">
+<p>Deletes the indexed distributor from the list of distributors engaged with the store.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deletedistributor 2</code><br>
+Deletes the 2nd distributor in the contacts panel.</p>
+</li>
+<li>
+<p><code>finddistributor Betsy</code><br>
+<code>delete 1</code><br>
+ Deletes the 1st distributor in the results of the find command.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clear-the-distributor-book-code-cleardistributors-code"><a class="link" href="#clear-the-distributor-book-code-cleardistributors-code">Clear the distributor book: <code>cleardistributors</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>cleardistributors</code></p>
+</div>
+<div class="paragraph">
+<p>Deletes all distributors from the distributor book.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -131,14 +277,202 @@
 </table>
 <div class="paragraph">
 <p>I updated:
-the Logic class diagram: include::../DeveloperGuide.adoc[tag=logicclassdiagram],
-the UI class diagram: include::../DeveloperGuide.adoc[tag=uiclassdiagram]</p>
+the Logic class diagram:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/LogicClassDiagram.png" alt="LogicClassDiagram" width="800">
+</div>
+<div class="title">Figure 1. Class Diagram of the Logic Component</div>
+</div>
+<div class="paragraph">
+<p>and the UI class diagram:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UiClassDiagram.png" alt="UiClassDiagram" width="800">
+</div>
+<div class="title">Figure 2. Structure of the UI Component</div>
 </div>
 <div class="paragraph">
 <p>In the appendices, I included:
-the user stories related to product features: include::../DeveloperGuide.adoc[tag=productuserstories],
-the user stories related to distributor features: include::../DeveloperGuide.adoc[tag=distributoruserstories],
-the use cases related to distributor features: include::../DeveloperGuide.adoc[tag=distributorusecases]</p>
+the user stories related to product features:</p>
+</div>
+<div class="paragraph">
+<p>|<code>* * *</code> |self-employed provision shop owner |see usage instructions |refer to instructions when I forget how to use the App</p>
+</div>
+<div class="paragraph">
+<p>|<code>* * *</code> |self-employed provision shop owner |add a new product to my record of products | keep track of all the products that my shop owns</p>
+</div>
+<div class="paragraph">
+<p>|<code>* * *</code> |self-employed provision shop owner |delete a product from my record of products | stop tracking products I no longer want to sell in my store</p>
+</div>
+<div class="paragraph">
+<p>|<code>* * *</code> |self-employed provision shop owner |find a product by name | locate details of products without having to go through the entire list</p>
+</div>
+<div class="paragraph">
+<p>|<code>* * *</code> |self-employed provision shop owner |find a product by relevant tags | retrieve a list of products that are of a certain type</p>
+</div>
+<div class="paragraph">
+<p>,the user stories related to distributor features:</p>
+</div>
+<div class="paragraph">
+<p>|<code>* * *</code> |self-employed provision shop owner |add a distributor to my record of distributors | keep track of who supplies my products to me</p>
+</div>
+<div class="paragraph">
+<p>|<code>* * *</code> |self-employed provision shop owner |delete a distributor from my record of distributors | declutter the distributors I keep in contact with if I choose to stop business with a certain distributor</p>
+</div>
+<div class="paragraph">
+<p>|<code>* * *</code> |self-employed provision shop owner |edit a distributor in my record of distributors | change the name or phone number of a distributor in case their details change, and keep up to date with their contacts</p>
+</div>
+<div class="paragraph">
+<p>|<code>* * *</code> |self-employed provision shop owner |find a distributor by name | retrieve contact details of distributors without having to go through the entire list</p>
+</div>
+<div class="paragraph">
+<p>|<code>* * *</code> |self-employed provision shop owner |find a distributor by relevant tags | retrieve a list of distributors who supply a certain type of products</p>
+</div>
+<div class="paragraph">
+<p>|<code>* * *</code> |self-employed provision shop owner |view what products a distributor supplies | retrieve a list of all the products that a distributor supplies at one go, in case I need to make an order</p>
+</div>
+<div class="paragraph">
+<p>and the use cases related to distributor features:</p>
+</div>
+<h3 id="use-case-add-distributor" class="discrete">Use case: Add distributor</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add distributors</p>
+</li>
+<li>
+<p>Inventarie PRO adds the distributor into the list of distributors</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="use-case-list-distributor" class="discrete">Use case: List distributor</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list all distributors</p>
+</li>
+<li>
+<p>Inventarie PRO shows the entire list of distributors</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="use-case-edit-distributor" class="discrete">Use case: Edit distributor</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list all distributors</p>
+</li>
+<li>
+<p>Inventarie PRO shows the entire list of distributors</p>
+</li>
+<li>
+<p>User requests to edit a specific distributor by index</p>
+</li>
+<li>
+<p>Inventarie PRO edits the specific distributor in the list of distributors</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="use-case-find-distributor-by-name" class="discrete">Use case: Find distributor by name</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to find the distributor or distributors that have a certain name</p>
+</li>
+<li>
+<p>Inventarie PRO shows the list of distributors with names that match the keyword given</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="use-case-find-distributor-by-tag" class="discrete">Use case: Find distributor by tag</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to find the distributor or distributors that have a certain tag</p>
+</li>
+<li>
+<p>Inventarie PRO shows the list of distributors with tags that match the keyword given</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="use-case-list-products-supplied-by-a-distributor" class="discrete">Use case: List products supplied by a distributor</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list all distributors</p>
+</li>
+<li>
+<p>Inventarie PRO shows the entire list of distributors</p>
+</li>
+<li>
+<p>User requests to view the products supplied by a specific distributor by index</p>
+</li>
+<li>
+<p>Inventarie PRO lists the products supplied by the specific distributor in the list of distributors</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="use-case-delete-distributor" class="discrete">Use case: Delete distributor</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list distributors</p>
+</li>
+<li>
+<p>Inventarie PRO shows a list of distributors</p>
+</li>
+<li>
+<p>User requests to delete a specific distributor in the list</p>
+</li>
+<li>
+<p>Inventarie PRO deletes the product</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:54:09 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:23:32 UTC</div></div></div></body></html>
