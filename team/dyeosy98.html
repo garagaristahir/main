@@ -27,19 +27,16 @@
 <p>What it does: Allows the user to add, edit, delete and find distributors that the user would like a record of. It also allows the user to see which distributor provides what products for the shop.</p>
 </li>
 <li>
-<p>Justification: This feature is an essential part of a digitised inventory management system, given that a self-employed provision shop owner would want</p>
+<p>Justification: This feature is an essential part of a digitised inventory management system, given that products which a self-employed provision shop owner wants to sell must have a source of supply (a distributor).</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands which other members were concurrently working on too.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Minor enhancement</strong>: Refactored some of the previous 'person' classes, methods and objects to a suitable 'product' name throughout the course of the project</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
@@ -53,7 +50,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
+<p>Managed releases <code>v1.2.1</code>, <code>v1.3.1</code> and <code>v1.3.2</code> (3 releases) on GitHub</p>
 </li>
 </ul>
 </div>
@@ -63,10 +60,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
+<p>Increased functionality of find commands - finding products / distributors by their tag and not just by name (Pull request <a href="https://github.com">#182</a>)</p>
 </li>
 <li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Updated the GUI to fit new features (distributor, transaction, reminder) (Pull requests <a href="https://github.com"><mark>101</a> and <a href="https://github.com">#148</a>) and removed the unnecessary browser panel (Pull request <a href="https://github.com"></mark></a></p>
+</li>
+<li>
+<p>Adapted existing tests to incorporate new features</p>
 </li>
 </ul>
 </div>
@@ -76,7 +76,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Updated class diagrams for UI, Logic and Model in the Developer Guide (Pull requests <a href="https://github.com">#187</a> and <a href="https://github.com">#189</a>)</p>
 </li>
 </ul>
 </div>
@@ -86,30 +86,8 @@
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
-</li>
-<li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
 <p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
 </li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
-</li>
 </ul>
 </div>
 </li>
@@ -117,9 +95,6 @@
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -137,8 +112,150 @@
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">Encrypting data files <code>[coming in v2.0]</code></a></h3>
-
+<h3 id="contacts"><a class="link" href="#contacts">Contacts</a></h3>
+<div class="sect3">
+<h4 id="add-a-distributor-code-adddistributor-code"><a class="link" href="#add-a-distributor-code-adddistributor-code">Add a distributor: <code>adddistributor</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>adddistributor dn/DISTRIBUTOR_NAME dp/PHONE_NUMBER t/TAG</code></p>
+</div>
+<div class="paragraph">
+<p>Adds a distributor to the list of distributors engaged with the store.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>adddistributor dn/Ming Kee dp/98761234</code></p>
+</li>
+<li>
+<p><code>adddistributor dn/Hak Kim dp/65900011</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-all-distributors-code-listdistributors-code"><a class="link" href="#list-all-distributors-code-listdistributors-code">List all distributors: <code>listdistributors</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>listdistributors</code></p>
+</div>
+<div class="paragraph">
+<p>Provides the list of distributors engaged with the store.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edit-a-distributor-code-editdistributor-code"><a class="link" href="#edit-a-distributor-code-editdistributor-code">Edit a distributor: <code>editdistributor</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>editdistributor index dn/DISTRIBUTOR_NAME dp/PHONE_NUMBER</code></p>
+</div>
+<div class="paragraph">
+<p>Edits details of the indexed distributor from the list of distributors engaged with the store.
+Index should be a positive number.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editdistributor 1 dn/Apple Farm Lok dp/93120000</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="find-a-distributor-code-finddistributor-code"><a class="link" href="#find-a-distributor-code-finddistributor-code">Find a distributor: <code>finddistributor</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>finddistributor DISTRIBUTOR_NAME</code></p>
+</div>
+<div class="paragraph">
+<p>Locates distributors that are related to the DISTRIBUTOR_NAME entered.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>finddistributor Farm</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="find-a-distributor-by-tag-code-findtagdistributor-code"><a class="link" href="#find-a-distributor-by-tag-code-findtagdistributor-code">Find a distributor by tag: <code>findtagdistributor</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>findtagdistributor DISTRIBUTOR_TAG</code></p>
+</div>
+<div class="paragraph">
+<p>Locates distributors that are related to the DISTRIBUTOR_TAG entered.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findtagdistributor snack</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="see-a-list-of-products-that-a-distributor-can-provide-code-listdistributorproducts-code"><a class="link" href="#see-a-list-of-products-that-a-distributor-can-provide-code-listdistributorproducts-code">See a list of products that a distributor can provide: <code>listdistributorproducts</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>listdistributorproducts index</code></p>
+</div>
+<div class="paragraph">
+<p>Lists products that the indexed distributor from the list of distributors engaged with the store may supply.
+Index should be a positive number.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>listdistributorproducts 2</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-a-distributor-code-deletedistributor-code"><a class="link" href="#delete-a-distributor-code-deletedistributor-code">Delete a distributor: <code>deletedistributor</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>deletedistributor index</code></p>
+</div>
+<div class="paragraph">
+<p>Deletes the indexed distributor from the list of distributors engaged with the store.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deletedistributor 2</code><br>
+Deletes the 2nd distributor in the contacts panel.</p>
+</li>
+<li>
+<p><code>finddistributor Betsy</code><br>
+<code>delete 1</code><br>
+ Deletes the 1st distributor in the results of the find command.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="clear-the-distributor-book-code-cleardistributors-code"><a class="link" href="#clear-the-distributor-book-code-cleardistributors-code">Clear the distributor book: <code>cleardistributors</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>cleardistributors</code></p>
+</div>
+<div class="paragraph">
+<p>Deletes all distributors from the distributor book.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -155,261 +272,142 @@
 </tr>
 </tbody>
 </table>
-<div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">Undo/Redo feature</a></h3>
-<div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<h3 id="use-case-add-distributor" class="discrete">Use case: Add distributor</h3>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
-It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
+<p><strong>MSS</strong></p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><code>VersionedAddressBook#commit()</code>&#8201;&#8212;&#8201;Saves the current productInfo book state in its history.</p>
+<p>User requests to add distributors</p>
 </li>
 <li>
-<p><code>VersionedAddressBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous productInfo book state from its history.</p>
-</li>
-<li>
-<p><code>VersionedAddressBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone productInfo book state from its history.</p>
-</li>
-</ul>
-</div>
+<p>Inventarie PRO adds the distributor into the list of distributors</p>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> and <code>Model#redoAddressBook()</code> respectively.</p>
+<p>Use case ends.</p>
 </div>
+</li>
+</ol>
+</div>
+<h3 id="use-case-list-distributor" class="discrete">Use case: List distributor</h3>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
+<p><strong>MSS</strong></p>
 </div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list all distributors</p>
+</li>
+<li>
+<p>Inventarie PRO shows the entire list of distributors</p>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial productInfo book state, and the <code>currentStatePointer</code> pointing to that single productInfo book state.</p>
+<p>Use case ends.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoStartingStateListDiagram.png" alt="UndoRedoStartingStateListDiagram" width="800">
+</li>
+</ol>
 </div>
-</div>
+<h3 id="use-case-edit-distributor" class="discrete">Use case: Edit distributor</h3>
 <div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th product in the productInfo book. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the productInfo book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted productInfo book state.</p>
+<p><strong>MSS</strong></p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand1StateListDiagram.png" alt="UndoRedoNewCommand1StateListDiagram" width="800">
-</div>
-</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list all distributors</p>
+</li>
+<li>
+<p>Inventarie PRO shows the entire list of distributors</p>
+</li>
+<li>
+<p>User requests to edit a specific distributor by index</p>
+</li>
+<li>
+<p>Inventarie PRO edits the specific distributor in the list of distributors</p>
 <div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new product. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified productInfo book state to be saved into the <code>addressBookStateList</code>.</p>
+<p>Use case ends.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand2StateListDiagram.png" alt="UndoRedoNewCommand2StateListDiagram" width="800">
+</li>
+</ol>
 </div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the productInfo book state will not be saved into the <code>addressBookStateList</code>.
-</td>
-</tr>
-</table>
-</div>
+<h3 id="use-case-find-distributor-by-name" class="discrete">Use case: Find distributor by name</h3>
 <div class="paragraph">
-<p>Step 4. The user now decides that adding the product was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous productInfo book state, and restores the productInfo book to that state.</p>
+<p><strong>MSS</strong></p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoExecuteUndoStateListDiagram.png" alt="UndoRedoExecuteUndoStateListDiagram" width="800">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial productInfo book state, then there are no previous productInfo book states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
-</td>
-</tr>
-</table>
-</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to find the distributor or distributors that have a certain name</p>
+</li>
+<li>
+<p>Inventarie PRO shows the list of distributors with names that match the keyword given</p>
 <div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
+<p>Use case ends.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
+</li>
+</ol>
 </div>
-</div>
+<h3 id="use-case-find-distributor-by-tag" class="discrete">Use case: Find distributor by tag</h3>
 <div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the productInfo book to that state.</p>
+<p><strong>MSS</strong></p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest productInfo book state, then there are no undone productInfo book states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
-</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to find the distributor or distributors that have a certain tag</p>
+</li>
+<li>
+<p>Inventarie PRO shows the list of distributors with tags that match the keyword given</p>
 <div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the productInfo book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
+<p>Use case ends.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand3StateListDiagram.png" alt="UndoRedoNewCommand3StateListDiagram" width="800">
+</li>
+</ol>
 </div>
-</div>
+<h3 id="use-case-list-products-supplied-by-a-distributor" class="discrete">Use case: List products supplied by a distributor</h3>
 <div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all productInfo book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
+<p><strong>MSS</strong></p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand4StateListDiagram.png" alt="UndoRedoNewCommand4StateListDiagram" width="800">
-</div>
-</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list all distributors</p>
+</li>
+<li>
+<p>Inventarie PRO shows the entire list of distributors</p>
+</li>
+<li>
+<p>User requests to view the products supplied by a specific distributor by index</p>
+</li>
+<li>
+<p>Inventarie PRO lists the products supplied by the specific distributor in the list of distributors</p>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire productInfo book.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement.</p>
-</li>
-<li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
-</li>
-</ul>
+<p>Use case ends.</p>
 </div>
 </li>
-<li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the product being deleted).</p>
-</li>
-<li>
-<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
-</li>
-</ul>
+</ol>
 </div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of productInfo book states.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
-</li>
-<li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
-</li>
-<li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">[Proposed] Data Encryption</a></h3>
-<div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">Proposed Implementation</a></h4>
+<h3 id="use-case-delete-distributor" class="discrete">Use case: Delete distributor</h3>
 <div class="paragraph">
-<p>Data needs to be encrypted to protect from unauthorized access.
-The process to transform data stored in the databases is to be facilitated by <code>DataEncryptionUtil</code> class.
-It is a class containing utility methods to encrypt and decrypt files for Storage.
-Additionally, it implements the following operations:</p>
+<p><strong>MSS</strong></p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><code>DataEncryptionUtil#encrypt()</code> - Encrypts file using a secret key.</p>
+<p>User requests to list distributors</p>
 </li>
 <li>
-<p><code>DataEncryptionUtil#decrypt()</code> - Decrypts file using a secret key.</p>
+<p>Inventarie PRO shows a list of distributors</p>
 </li>
 <li>
-<p><code>DataEncryptionUtil#processFile()</code> - Encrypts or decrypts a given file using a cipher.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-possible-schemes"><a class="link" href="#aspect-possible-schemes">Aspect: Possible schemes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (proposed choice):</strong> AES/CBC/PKCS5Padding</p>
+<p>User requests to delete a specific distributor in the list</p>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> AES/ECB/PKCS5Padding</p>
+<p>Inventarie PRO deletes the product</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
 </li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-how-encryption-and-decryption-executes"><a class="link" href="#aspect-how-encryption-and-decryption-executes">Aspect: How encryption and decryption executes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (proposed choice):</strong> Intercept <code>XMLUtil</code> when reading and saving XML Storage files.</p>
-</li>
-<li>
-<p><strong>Aleternative 2:</strong> Individual encrypt and decrypt command.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
+</ol>
 </div>
 </div>
 </div>
@@ -421,4 +419,4 @@ Additionally, it implements the following operations:</p>
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 11:31:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 11:38:07 UTC</div></div></div></body></html>
