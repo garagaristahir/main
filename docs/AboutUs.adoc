@@ -36,11 +36,3 @@ Responsibilities: Documentation + Communication
 
 '''
 
-=== Tahir Gara
-image::garagaristahir.png[width="150", align="left"]
-{empty}[https://github.com/garagaristahir[github]][<<garagaristahir#, portfolio>>]
-
-Role: Core Developer +
-Responsibilities: Product Data
-
-'''
